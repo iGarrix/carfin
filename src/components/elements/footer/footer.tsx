@@ -4,7 +4,9 @@ import { SquareArrowOutUpRight } from 'lucide-react'
 import Link from 'next/link'
 import { Fragment } from 'react'
 import style from './footer.style.module.scss'
+import { useRouter } from 'next/navigation'
 export default function Footer() {
+	const { push } = useRouter()
 	return (
 		<Fragment>
 			<div className={`${style.upperblock}`}>
@@ -42,23 +44,36 @@ export default function Footer() {
 					</div>
 					<div className={`${style.wrapper2}`}>
 						<ul className={`${style.ul1}`}>
-							<h2>Служба підтримки</h2>
+							<li>
+								<h2>Служба підтримки</h2>
+							</li>
 							<li>+38 (097) 109-88-77</li>
 						</ul>
 						<ul className={`${style.ul1}`}>
-							<h2>Пошта</h2>
+							<li>
+								<h2>Пошта</h2>
+							</li>
 							<li>office@carfin.in.ua</li>
 						</ul>
 						<ul className={`${style.ul2}`}>
-							<Link href={'/loan_under_car'}>
-								<li>Позика під авто</li>
-							</Link>
-							<Link href={'/rental'}>
-								<li>Оренда з правом викупу</li>
-							</Link>
-							<Link href={'/investors'}>
-								<li>Інвесторам</li>
-							</Link>
+							<li
+								onClick={() => {
+									push('/loan_under_car')
+								}}>
+								Позика під авто
+							</li>
+							<li
+								onClick={() => {
+									push('/rental')
+								}}>
+								Оренда з правом викупу
+							</li>
+							<li
+								onClick={() => {
+									push('/investors')
+								}}>
+								Інвесторам
+							</li>
 						</ul>
 					</div>
 				</div>

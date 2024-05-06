@@ -15,7 +15,7 @@
 		@apply xs:text-2xl xs:px-[0.5rem] md:px-0 md:text-4xl;
 
 		span {
-			@apply bg-accent text-light px-2;
+			@apply bg-amber-500 text-light px-2;
 		}
 	}
 
@@ -27,7 +27,7 @@
 		@apply z-[9] absolute bottom-0 right-0 w-full flex justify-end translate-x-[70px];
 
 		.img {
-			@apply w-auto h-auto;
+			@apply w-auto h-auto aspect-auto;
 			@apply xs:hidden 2xl:flex;
 		}
 	}
@@ -42,7 +42,7 @@
 			@apply transition-all;
 
 			&.selected {
-				@apply text-accent;
+				@apply text-amber-600;
 			}
 		}
 	}
@@ -65,7 +65,7 @@
 		.calcWrapper {
 			@apply border rounded mt-2;
 
-			h4,
+			h2,
 			p {
 				@apply py-2;
 			}

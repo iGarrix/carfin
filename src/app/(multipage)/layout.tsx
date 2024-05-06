@@ -3,6 +3,7 @@ import ContactForm from '@/components/elements/contactform/contactform_drawer/co
 import Footer from '@/components/elements/footer/footer'
 import { Header } from '@/components/elements/headers/header/header.component'
 import style from './layout.style.module.scss'
+
 export default function ClientLayout(
 	props: Readonly<{ children: React.ReactNode }>
 ) {

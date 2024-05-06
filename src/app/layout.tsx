@@ -57,8 +57,40 @@ const gilory = localFont({
 })
 
 export const metadata: Metadata = {
-	title: 'Nextjs app created by nextpayne',
-	description: 'Advanced setup using nextpayne',
+	title: {
+		default: 'Carfin - Авто в росрочку',
+		template: '%s - Carfin',
+	},
+	description:
+		'ОРЕНДУЙТЕ АВТО ПІД БУДЬ-ЯКІ ПОТРЕБИ ЗА ОДИН ДЕНЬ ТА ОТРИМАЙТЕ ЙОГО У ВЛАСНІСТЬ ВЖЕ ЧЕРЕЗ РІК',
+	applicationName: 'Carfin',
+	referrer: 'origin-when-cross-origin',
+	keywords: ['Carfin'],
+	authors: [{ name: 'Illinpayne', url: 'https://webcraft.rivne.ua' }],
+	creator: 'Stas Tarnogurskiy',
+	publisher: 'Stas Tarnogurskiy',
+	formatDetection: {
+		email: false,
+		address: false,
+		telephone: false,
+	},
+	metadataBase: new URL(process.env.NEXT_PUBLIC_URL || 'nextjs.org'),
+	twitter: {
+		card: 'summary_large_image',
+		description:
+			'ОРЕНДУЙТЕ АВТО ПІД БУДЬ-ЯКІ ПОТРЕБИ ЗА ОДИН ДЕНЬ ТА ОТРИМАЙТЕ ЙОГО У ВЛАСНІСТЬ ВЖЕ ЧЕРЕЗ РІК',
+		creator: '@illinpayne',
+		images: ['../../public/twitter_main.png'],
+	},
+	openGraph: {
+		title: 'Carfin - Авто в росрочку',
+		description:
+			'ОРЕНДУЙТЕ АВТО ПІД БУДЬ-ЯКІ ПОТРЕБИ ЗА ОДИН ДЕНЬ ТА ОТРИМАЙТЕ ЙОГО У ВЛАСНІСТЬ ВЖЕ ЧЕРЕЗ РІК',
+		url: process.env.NEXT_PUBLIC_URL,
+		siteName: 'Carfin',
+		type: 'website',
+		images: ['../../public/twitter_main.png'],
+	},
 }
 
 export default function RootLayout(

@@ -85,12 +85,14 @@ export default function Services() {
 				<div>
 					<ul>
 						{services.map((item, key) => (
-							<StoryCard key={key}>
-								<StoryCard.Index>{item.index}</StoryCard.Index>
-								<hr /> <br />
-								<StoryCard.Title>{item.title}</StoryCard.Title>
-								<StoryCard.Detail>{item.details}</StoryCard.Detail>
-							</StoryCard>
+							<li key={key}>
+								<StoryCard>
+									<StoryCard.Index>{item.index}</StoryCard.Index>
+									<hr /> <br />
+									<StoryCard.Title>{item.title}</StoryCard.Title>
+									<StoryCard.Detail>{item.details}</StoryCard.Detail>
+								</StoryCard>
+							</li>
 						))}
 					</ul>
 				</div>

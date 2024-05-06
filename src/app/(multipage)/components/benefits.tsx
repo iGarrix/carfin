@@ -53,14 +53,16 @@ export default function Benefits() {
 				</h1>
 				<ul>
 					{benefits.map((item, key) => (
-						<StoryCard key={key}>
-							<StoryCard.Index>
-								{(key + 1).toLocaleString('en', { minimumIntegerDigits: 2 })}
-							</StoryCard.Index>
-							<hr /> <br />
-							<StoryCard.Title>{item.title}</StoryCard.Title>
-							<StoryCard.Detail>{item.benefit}</StoryCard.Detail>
-						</StoryCard>
+						<li key={key}>
+							<StoryCard>
+								<StoryCard.Index>
+									{(key + 1).toLocaleString('en', { minimumIntegerDigits: 2 })}
+								</StoryCard.Index>
+								<hr /> <br />
+								<StoryCard.Title>{item.title}</StoryCard.Title>
+								<StoryCard.Detail>{item.benefit}</StoryCard.Detail>
+							</StoryCard>
+						</li>
 					))}
 				</ul>
 			</div>

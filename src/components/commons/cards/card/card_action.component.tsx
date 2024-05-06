@@ -8,6 +8,8 @@ interface ICardActionProps
 function CardAction({ className, ...props }: ICardActionProps) {
 	return (
 		<button
+			aria-label='button_action'
+			role='alert'
 			className={cn(
 				'mt-auto transition-all active:translate-x-2 hover:text-accent',
 				className

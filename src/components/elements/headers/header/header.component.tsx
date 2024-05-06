@@ -66,6 +66,7 @@ export const Header: React.FC = () => {
 						</AccentButton>
 					</aside>
 					<button
+						aria-label='phone_menu'
 						className={`${style.bar}`}
 						onClick={() => {
 							onOpenDrawer(true)

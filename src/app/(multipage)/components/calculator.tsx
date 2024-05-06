@@ -142,9 +142,9 @@ export default function CalculatorElement() {
 					<p className={style.calcTableTitle}>Розрахунок</p>
 					<div className={style.calcWrapper}>
 						<section className={style.sect1}>
-							<h4 className='py-2'>Регулярний платіж</h4>
-							<h4 className={style.righth4}>Всі платежі</h4>
-							<h4 className={style.righth4}>Переплата</h4>
+							<h2 className='py-2'>Регулярний платіж</h2>
+							<h2 className={style.righth4}>Всі платежі</h2>
+							<h2 className={style.righth4}>Переплата</h2>
 						</section>
 						<section className={style.sect2}>
 							<p>{calculate.regular.toFixed(2)} usd</p>
