@@ -1,0 +1,7 @@
+.dialog {
+	@apply bg-accent-100;
+
+	.title {
+		@apply font-semibold text-xl;
+	}
+}

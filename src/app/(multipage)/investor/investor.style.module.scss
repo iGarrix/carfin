@@ -1,0 +1,89 @@
+.container {
+	@apply bg-light grid grid-cols-12;
+
+	.sect1 {
+		@apply bg-accent-100 grid grid-cols-12 py-[10svh] rounded-b-[5rem] shadow-2xl shadow-accent-100 border-b-4 border-light border-dashed col-span-full;
+		@apply xs:pb-[5svh] xs:pt-0 lg:py-[10svh];
+
+		.s1 {
+			@apply flex flex-col justify-center col-start-2 col-span-5;
+			@apply xs:col-span-10 xs:col-start-2 lg:col-span-5 lg:col-start-2;
+
+			h1 {
+				@apply uppercase font-black tracking-wide text-3xl;
+				@apply xs:text-xl;
+			}
+		}
+
+		.s2 {
+			@apply flex items-center justify-center col-span-5;
+			@apply xs:hidden lg:flex;
+		}
+	}
+
+	.sect2 {
+		@apply col-span-10 col-start-2 mt-16;
+
+		.wrapper {
+			@apply grid grid-cols-2 gap-5;
+			@apply xs:grid-cols-1 xl:grid-cols-2;
+			.s1 {
+				@apply flex flex-col items-center justify-center;
+
+				img {
+					@apply w-auto h-auto object-contain -scale-x-100 mt-auto;
+					@apply xs:hidden xl:block;
+				}
+
+				.benefits {
+					@apply mt-auto w-full py-2 grid grid-cols-2 gap-5;
+					@apply xs:grid-cols-1 xs:text-center sm:grid-cols-2;
+
+					h1 {
+						@apply text-5xl font-black uppercase font-monument;
+					}
+				}
+			}
+
+			.s2 {
+				@apply grid grid-cols-2 gap-4;
+				@apply xs:grid-cols-1 md:grid-cols-2;
+			}
+		}
+	}
+
+	.sect3 {
+		@apply grid grid-cols-3 col-span-10 col-start-2 gap-5 mt-16;
+		@apply xs:grid-cols-1 md:grid-cols-2 lg:grid-cols-3;
+		.head {
+			@apply col-span-full;
+
+			.title {
+				@apply text-center;
+			}
+		}
+	}
+
+	.sect4 {
+		@apply col-span-11 col-start-2 grid grid-cols-2 gap-4 mt-16 overflow-hidden;
+		@apply xs:grid-cols-1 xl:grid-cols-2;
+
+		.head {
+			@apply col-span-full;
+		}
+
+		.s1 {
+			@apply grid grid-cols-2 gap-4 text-balance;
+			@apply xs:grid-cols-1 md:grid-cols-2;
+		}
+
+		.s2 {
+			@apply flex justify-end overflow-hidden;
+			@apply xs:hidden xl:flex;
+
+			img {
+				@apply w-auto h-auto object-contain translate-x-[35%];
+			}
+		}
+	}
+}

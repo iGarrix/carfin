@@ -1,0 +1,107 @@
+.container {
+	@apply bg-light grid grid-cols-12;
+
+	.sect1 {
+		@apply grid grid-cols-12 col-span-full bg-accent-100 min-h-[89svh];
+		@apply xs:min-h-0 lg:min-h-[89svh];
+		.wrapper {
+			@apply grid grid-cols-2 col-start-2 col-span-10 mt-auto;
+			@apply xs:grid-cols-1 xs:pb-16 lg:grid-cols-2;
+
+			.contentContainer {
+				@apply flex flex-col justify-center;
+				//@apply xs:col-span-full;
+
+				.title {
+					@apply font-black text-4xl text-balance;
+					@apply xs:text-center lg:text-start;
+				}
+
+				p {
+					@apply text-lg;
+
+					span {
+						@apply bg-gradient-to-r from-rose-500 via-rose-500 to-black text-transparent bg-clip-text font-black text-2xl mr-2;
+					}
+				}
+
+				ol {
+					li {
+						@apply flex items-center text-green-500 gap-1 text-lg;
+
+						svg {
+							@apply w-[1.4rem];
+						}
+					}
+				}
+			}
+
+			.imageContainer {
+				@apply flex items-center;
+				@apply xs:hidden lg:flex;
+
+				.img {
+					@apply w-auto h-auto object-contain mix-blend-multiply;
+				}
+			}
+		}
+		.underWrapper {
+			@apply col-span-full bg-dark-200 text-light-200 py-8 grid grid-cols-12 bg-noise mt-auto gap-2;
+			//@apply xs:mt-16 sm:mt-auto;
+
+			h2 {
+				@apply text-3xl font-black uppercase col-start-2 col-span-10;
+			}
+
+			p {
+				@apply col-start-2 row-start-2 col-span-10;
+			}
+		}
+	}
+
+	.sect2 {
+		@apply col-span-10 col-start-2 grid grid-cols-2 gap-10 mt-16;
+
+		.head {
+			@apply col-span-full;
+
+			.title {
+				@apply text-center;
+			}
+		}
+
+		.s1 {
+			@apply flex justify-end overflow-hidden;
+			@apply xs:hidden xl:flex;
+
+			img {
+				@apply w-auto h-auto object-contain;
+			}
+		}
+		.s2 {
+			@apply grid grid-cols-2 gap-6;
+			@apply xs:grid-cols-1 xs:col-span-full sm:grid-cols-2 xl:col-span-1;
+		}
+	}
+
+	.sect3 {
+		@apply col-span-10 col-start-2 grid grid-cols-4 gap-6 mt-16;
+		@apply xs:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4;
+		.head {
+			@apply col-span-full;
+
+			.title {
+				@apply text-center;
+			}
+		}
+
+		.bigCardWrap {
+			@apply bg-accent col-span-2;
+			@apply xs:col-span-1 xl:col-span-2;
+		}
+
+		.cardWrap {
+			@apply bg-accent;
+		}
+	}
+}

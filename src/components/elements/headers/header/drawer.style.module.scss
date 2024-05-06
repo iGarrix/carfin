@@ -1,0 +1,15 @@
+.drawer {
+	@apply min-h-[30svh] bg-accent-100 px-4 pb-[5svh];
+
+	nav {
+		@apply flex flex-col;
+
+		.link {
+			@apply p-2 transition-all hover:text-amber-500 rounded-sm flex items-center justify-between;
+
+			&.selected {
+				@apply bg-accent hover:text-dark-200;
+			}
+		}
+	}
+}

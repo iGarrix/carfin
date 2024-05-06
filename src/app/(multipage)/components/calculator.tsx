@@ -6,9 +6,7 @@ import { Slider } from '@/components/ui/slider'
 import { cn } from '@/lib/utils'
 import { ChevronsLeftRight } from 'lucide-react'
 import { useEffect, useState } from 'react'
-
-const annualInterestRate = 0.735
-
+import style from './header.style.module.scss'
 export default function CalculatorElement() {
 	const [fields, setFields] = useState<CalculatorState>({
 		amount: 0,
@@ -73,12 +71,10 @@ export default function CalculatorElement() {
 	}
 
 	return (
-		<div className='flex flex-col items-start mx-auto mt-10 z-10'>
-			<div className='bg-light flex gap-5 p-5 rounded-t-sm'>
+		<div className={`${style.calculatorWrapper}`}>
+			<div className={`${style.cases}`}>
 				<button
-					className={cn(
-						`transition-all ${fields.variant === 'weekly' && 'text-accent'}`
-					)}
+					className={cn(fields.variant === 'weekly' && style.selected)}
 					onClick={() => {
 						setFields(p => ({
 							...p,
@@ -89,9 +85,7 @@ export default function CalculatorElement() {
 				</button>
 				<ChevronsLeftRight />
 				<button
-					className={cn(
-						`transition-all ${fields.variant === 'monthly' && 'text-accent'}`
-					)}
+					className={cn(fields.variant === 'monthly' && style.selected)}
 					onClick={() => {
 						setFields(p => ({
 							...p,
@@ -101,10 +95,10 @@ export default function CalculatorElement() {
 					Платіж щомісяця
 				</button>
 			</div>
-			<div className='bg-light flex rounded-b-sm rounded-r-sm p-5 flex-col gap-5 w-full'>
-				<div className='flex gap-2 w-full'>
+			<div className={`${style.logic}`}>
+				<div className={`${style.fieldWrapper}`}>
 					<Field
-						className='bg-light-200 dark:bg-slate-800 autofill:bg-slate-800 outline-none border-none rounded'
+						className={`bg-light-200 dark:bg-slate-800 autofill:bg-slate-800 outline-none border-none rounded`}
 						type='number'
 						name='amount'
 						placeholder={'E.g 9700'}
@@ -117,7 +111,7 @@ export default function CalculatorElement() {
 						title='Вартість авто (USD)'
 					/>
 					<Field
-						className='bg-light-200 dark:bg-slate-800 autofill:bg-slate-800 outline-none border-none rounded'
+						className={`bg-light-200 dark:bg-slate-800 autofill:bg-slate-800 outline-none border-none rounded`}
 						type='number'
 						name='first_deposit'
 						placeholder={'E.g 3500'}
@@ -130,7 +124,7 @@ export default function CalculatorElement() {
 						title={'Перший внесок (USD)'}
 					/>
 				</div>
-				<div className='flex flex-col gap-3'>
+				<div className={style.period}>
 					<p className=''>Період (місяці): {transformPeriod(fields.period)}</p>
 					<Slider
 						defaultValue={[0]}
@@ -145,17 +139,17 @@ export default function CalculatorElement() {
 					/>
 				</div>
 				<div>
-					<p className='font-semibold text-lg'>Розрахунок</p>
-					<div className='border rounded mt-2'>
-						<section className='grid grid-cols-3 px-2 gap-4 divide-x border-b'>
+					<p className={style.calcTableTitle}>Розрахунок</p>
+					<div className={style.calcWrapper}>
+						<section className={style.sect1}>
 							<h4 className='py-2'>Регулярний платіж</h4>
-							<h4 className='text-right py-2'>Всі платежі</h4>
-							<h4 className='text-right py-2'>Переплата</h4>
+							<h4 className={style.righth4}>Всі платежі</h4>
+							<h4 className={style.righth4}>Переплата</h4>
 						</section>
-						<section className='grid grid-cols-3 px-2 gap-4 divide-x'>
-							<p className='py-2'>{calculate.regular.toFixed(2)} usd</p>
-							<p className='text-right py-2'>{calculate.all.toFixed(2)} usd</p>
-							<p className='text-right py-2'>
+						<section className={style.sect2}>
+							<p>{calculate.regular.toFixed(2)} usd</p>
+							<p className={style.righth4}>{calculate.all.toFixed(2)} usd</p>
+							<p className={style.righth4}>
 								{calculate.overpaid.toFixed(2)} usd
 							</p>
 						</section>

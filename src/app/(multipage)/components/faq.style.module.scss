@@ -1,0 +1,45 @@
+.faq {
+	@apply bg-light w-full col-span-full grid grid-cols-12 gap-20;
+	@apply xs:flex xs:flex-col-reverse xs:gap-0 lg:grid lg:grid-cols-12 2xl:gap-20;
+	.side1 {
+		@apply col-span-5 col-start-2 py-[3rem];
+		@apply xs:px-6 lg:col-span-10 lg:col-start-2 lg:px-0;
+		@apply 2xl:col-span-5 2xl:col-start-2;
+		h1 {
+			@apply uppercase font-black text-3xl tracking-wider;
+		}
+		hr {
+			@apply border-dark-200 my-2;
+		}
+		.acc {
+			@apply w-full;
+			.trigger {
+				@apply text-start hover:border-0 whitespace-pre-wrap flex-wrap;
+			}
+		}
+	}
+
+	.side2 {
+		@apply col-span-5 col-start-7 py-[3rem] grid grid-cols-2 grid-rows-2 gap-6;
+		@apply xs:px-6 xs:flex xs:flex-col sm:grid sm:grid-cols-2 lg:col-span-10 lg:col-start-2 lg:px-0;
+		@apply 2xl:col-span-5 2xl:col-start-7;
+		.frpadding {
+			@apply p-6;
+		}
+		.fr {
+			@apply rounded-xl bg-accent text-light shadow-2xl shadow-accent/40 h-full flex items-center justify-center flex-col flex-wrap text-center gap-2 bg-noise;
+
+			h1 {
+				@apply text-4xl uppercase font-black text-center;
+			}
+
+			h2 {
+				@apply text-lg;
+			}
+		}
+
+		.fullfr {
+			@apply col-span-2 row-start-2 p-6;
+		}
+	}
+}

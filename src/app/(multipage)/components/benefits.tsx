@@ -1,7 +1,7 @@
 'use client'
 
 import StoryCard from '@/components/commons/cards/storyCard/story_card.component'
-
+import style from './benefits.style.module.scss'
 const benefits: Readonly<Array<{ title: string; benefit: string }>> = [
 	{
 		title: 'Миттєве узгодження',
@@ -46,19 +46,18 @@ const benefits: Readonly<Array<{ title: string; benefit: string }>> = [
 
 export default function Benefits() {
 	return (
-		<section className='bg-white col-span-full grid grid-cols-12'>
-			<div className='col-start-2 col-span-10 flex flex-col gap-10'>
-				<h1 className='text-4xl font-black text-center tracking-wide'>
-					Ваші переваги <br />з{' '}
-					<span className='font-monument uppercase'>Carfin</span>
+		<section className={style.benefits}>
+			<div className={style.wrapper}>
+				<h1 className={style.title}>
+					Ваші переваги <br />з <span>Carfin</span>
 				</h1>
-				<ul className='grid grid-cols-4 gap-5'>
+				<ul>
 					{benefits.map((item, key) => (
 						<StoryCard key={key}>
 							<StoryCard.Index>
 								{(key + 1).toLocaleString('en', { minimumIntegerDigits: 2 })}
 							</StoryCard.Index>
-							<hr className='border-dark-200' /> <br />
+							<hr /> <br />
 							<StoryCard.Title>{item.title}</StoryCard.Title>
 							<StoryCard.Detail>{item.benefit}</StoryCard.Detail>
 						</StoryCard>

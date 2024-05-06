@@ -1,0 +1,83 @@
+.wrapper {
+	@apply flex-1 col-span-full h-[90svh] pt-10 flex flex-col gap-10 relative overflow-hidden;
+	@apply xs:gap-0 sm:gap-10;
+	.rect1 {
+		@apply border-[3rem] border-dotted border-accent w-[25rem] h-[25rem] rounded-3xl absolute top-[10rem] left-[-15rem];
+		@apply xs:hidden md:flex;
+	}
+	.rect2 {
+		@apply border-[3rem] border-dashed border-accent w-[25rem] h-[25rem] rounded-full absolute top-0 right-[-15rem];
+		@apply xs:hidden md:flex;
+	}
+
+	h1 {
+		@apply font-black tracking-wide uppercase text-4xl text-center leading-snug z-10;
+		@apply xs:text-2xl xs:px-[0.5rem] md:px-0 md:text-4xl;
+
+		span {
+			@apply bg-accent text-light px-2;
+		}
+	}
+
+	.rect3 {
+		@apply bg-accent contrast-125 w-[130svw] h-[45%] absolute bottom-0 rotate-[-5deg] translate-x-[-2%] translate-y-[4rem] bg-noise;
+	}
+
+	.imageWrapper {
+		@apply z-[9] absolute bottom-0 right-0 w-full flex justify-end translate-x-[70px];
+
+		.img {
+			@apply w-auto h-auto;
+			@apply xs:hidden 2xl:flex;
+		}
+	}
+}
+
+.calculatorWrapper {
+	@apply flex flex-col items-start mx-auto mt-10 z-10;
+
+	.cases {
+		@apply bg-light flex gap-5 p-5 rounded-t-sm;
+		button {
+			@apply transition-all;
+
+			&.selected {
+				@apply text-accent;
+			}
+		}
+	}
+
+	.logic {
+		@apply bg-light flex rounded-b-sm rounded-r-sm p-5 flex-col gap-5 w-full;
+
+		.fieldWrapper {
+			@apply flex gap-2 w-full;
+			@apply xs:flex-col sm:flex-row;
+		}
+		.period {
+			@apply flex flex-col gap-3;
+		}
+
+		.calcTableTitle {
+			@apply font-semibold text-lg;
+		}
+
+		.calcWrapper {
+			@apply border rounded mt-2;
+
+			h4,
+			p {
+				@apply py-2;
+			}
+			.righth4 {
+				@apply text-right;
+			}
+			.sect1 {
+				@apply grid grid-cols-3 px-2 gap-4 divide-x border-b;
+			}
+			.sect2 {
+				@apply grid grid-cols-3 px-2 gap-4 divide-x;
+			}
+		}
+	}
+}

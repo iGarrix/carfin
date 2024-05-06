@@ -6,7 +6,10 @@ import { cn } from '@/lib/utils'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
-//import style from './scss.style.module.scss';
+import style from './header.style.module.scss'
+import { Menu } from 'lucide-react'
+import { Fragment, useState } from 'react'
+import PhoneHeaderDrawer from './phone_heder_drawer.component'
 
 const header_navigation: Readonly<Array<{ path: string; title: string }>> = [
 	{
@@ -26,39 +29,51 @@ const header_navigation: Readonly<Array<{ path: string; title: string }>> = [
 export const Header: React.FC = () => {
 	const pathname = usePathname()
 	const { onOpen } = useContactForm()
+	const [phoneDrawer, onOpenDrawer] = useState(false)
 	return (
-		<div className='w-full grid grid-cols-12'>
-			<header className='flex justify-between py-[2rem] items-center col-span-10 col-start-2 select-none'>
-				<Link href={'/'}>
-					<h1 className='font-monument uppercase tracking-wider text-2xl'>
-						carfin
-					</h1>
-				</Link>
-				<nav className='flex gap-6 h-full items-center'>
-					{header_navigation.map((item, key) => (
-						<Link
-							key={key}
-							href={item.path}
-							className={cn(
-								'transition-all rounded px-4 py-1 hover:bg-accent hover:shadow-lg hover:shadow-accent/40 active:scale-95',
-								`${
-									pathname.includes(item.path) &&
-									'bg-accent shadow-lg shadow-accent/30'
-								}`
-							)}>
-							{item.title}
-						</Link>
-					))}
-				</nav>
-				<aside>
-					<AccentButton
+		<Fragment>
+			<PhoneHeaderDrawer
+				isOpen={phoneDrawer}
+				pathname={pathname}
+				header_navigation={header_navigation}
+				onOpen={onOpenDrawer}
+				onOpenForm={onOpen}
+			/>
+			<div className={`${style.headerWrapper}`}>
+				<header className={`${style.header}`}>
+					<Link href={'/'}>
+						<h1 className={`${style.logo}`}>carfin</h1>
+					</Link>
+					<nav>
+						{header_navigation.map((item, key) => (
+							<Link
+								key={key}
+								href={item.path}
+								className={cn(
+									style.link,
+									`${pathname.includes(item.path) && style.selected}`
+								)}>
+								{item.title}
+							</Link>
+						))}
+					</nav>
+					<aside>
+						<AccentButton
+							onClick={() => {
+								onOpen(true)
+							}}>
+							Підібрати авто
+						</AccentButton>
+					</aside>
+					<button
+						className={`${style.bar}`}
 						onClick={() => {
-							onOpen(true)
+							onOpenDrawer(true)
 						}}>
-						Підібрати авто
-					</AccentButton>
-				</aside>
-			</header>
-		</div>
+						<Menu />
+					</button>
+				</header>
+			</div>
+		</Fragment>
 	)
 }

@@ -1,0 +1,6 @@
+.form {
+	@apply flex flex-col gap-5;
+	.sended {
+		@apply border-green-500 bg-green-500 text-light;
+	}
+}

@@ -10,7 +10,8 @@ import {
 	AccordionTrigger,
 } from '@/components/ui/accordion'
 import Image from 'next/image'
-
+import style from './rental.style.module.scss'
+import { cn } from '@/lib/utils'
 type Rent = {
 	title: string
 }
@@ -110,19 +111,19 @@ const benefitns: Array<Benefit> = [
 
 export default function RentalPage() {
 	return (
-		<main className='bg-light grid grid-cols-12 gap-16'>
-			<section className='grid grid-cols-12 gap-[2rem] col-span-full bg-accent-100 min-h-[89svh]'>
-				<div className='flex flex-col col-start-2 gap-10 col-span-10 mt-auto'>
-					<h1 className='font-black text-4xl uppercase col-span-full'>
+		<main className={style.container}>
+			<section className={style.head}>
+				<div className={style.main}>
+					<h1>
 						Чому вигідніше орендувати авто в Carfin з правом викупу <br /> ніж в
 						автопрокаті?
 					</h1>
-					<div className='grid grid-cols-2 gap-10'>
+					<div className={style.grid_cards}>
 						<StoryCardComponent>
 							<StoryCardComponent.Title>
 								Оренда за правом викупу Carfi
 							</StoryCardComponent.Title>
-							<hr className='border-dark-200' />
+							<hr />
 							<br />
 							<StoryCardComponent.Detail>
 								Найголовніша перевага: ви не просто щомісячно сплачуєте за
@@ -144,7 +145,7 @@ export default function RentalPage() {
 							<StoryCardComponent.Title>
 								Оренда без права викупу в автопрокаті
 							</StoryCardComponent.Title>
-							<hr className='border-dark-200' />
+							<hr />
 							<br />
 							<StoryCardComponent.Detail>
 								Ви щомісячно віддаєте гроші іншій компанії замість того, щоб
@@ -162,12 +163,12 @@ export default function RentalPage() {
 						</StoryCardComponent>
 					</div>
 				</div>
-				<section className='col-span-full bg-dark-200 text-light-200 py-8 grid grid-cols-12 bg-noise mt-auto'>
-					<h2 className='text-3xl font-black uppercase col-start-2 col-span-10 text-center'>
-						Як <span className='text-accent'>орендувати</span> авто з правом
-						викупу в <span className='text-accent'>Carfin</span>
+				<section className={style.under}>
+					<h2 className={style.title}>
+						Як <span>орендувати</span> авто з правом викупу в{' '}
+						<span>Carfin</span>
 					</h2>
-					<div className='w-full col-span-10 col-start-2 grid grid-cols-4 mt-10'>
+					<div className={style.storycards}>
 						{howRent.map((item, key) => (
 							<StoryCardComponent key={key}>
 								<StoryCardComponent.Index>0{key + 1}</StoryCardComponent.Index>
@@ -179,12 +180,12 @@ export default function RentalPage() {
 					</div>
 				</section>
 			</section>
-			<SectionBlock className='col-span-10 col-start-2 grid grid-cols-2 gap-10'>
-				<SectionBlock.Header className='col-span-full'>
-					<SectionBlock.Header.Title className='text-center'>
+			<SectionBlock className={style.section_custom}>
+				<SectionBlock.Header className={style.custom_head}>
+					<SectionBlock.Header.Title className={style.custom_title}>
 						Про послугу «Оренда авто з правом викупу»
 					</SectionBlock.Header.Title>
-					<SectionBlock.Header.Description className='text-balance text-center'>
+					<SectionBlock.Header.Description className={style.custom_desc}>
 						«Оренда авто з правом викупу» — це зручний, простий та вигідний
 						спосіб миттєво отримати авто в оренду для будь-яких своїх потреб з
 						подальшим правом викупу. <br /> Орендуйте авто разом з Carfin для
@@ -194,10 +195,8 @@ export default function RentalPage() {
 						після сплати.
 					</SectionBlock.Header.Description>
 				</SectionBlock.Header>
-				<aside className='grid grid-cols-2 gap-6'>
-					<h1 className='font-black text-3xl uppercase col-span-full'>
-						Умови оренди авто з правом викупу
-					</h1>
+				<aside className={style.s1}>
+					<h1>Умови оренди авто з правом викупу</h1>
 					{conditionRent.map((item, key) => (
 						<StoryCardComponent key={key}>
 							<StoryCardComponent.Index>0{key + 1}</StoryCardComponent.Index>
@@ -207,7 +206,7 @@ export default function RentalPage() {
 						</StoryCardComponent>
 					))}
 				</aside>
-				<aside className='flex justify-end overflow-hidden'>
+				<aside className={style.s2}>
 					<Image
 						alt='m8'
 						src={
@@ -216,27 +215,27 @@ export default function RentalPage() {
 						height={800}
 						width={800}
 						priority
-						className='w-auto h-auto object-contain'
+						className={style.img}
 					/>
 				</aside>
 			</SectionBlock>
-			<SectionBlock className='col-span-10 col-start-2 grid grid-cols-2 gap-10'>
-				<SectionBlock.Header className='col-span-full'>
-					<SectionBlock.Header.Title className='text-center'>
+			<SectionBlock className={cn(style.section_custom, style.faq)}>
+				<SectionBlock.Header className={style.custom_head}>
+					<SectionBlock.Header.Title className={style.custom_title}>
 						Питання та відповіді
 					</SectionBlock.Header.Title>
 				</SectionBlock.Header>
-				<Accordion type='single' collapsible className='w-full'>
+				<Accordion type='single' collapsible className={style.acc}>
 					{faq.map((item, key) => (
 						<AccordionItem key={key} value={key.toString()}>
-							<AccordionTrigger className='hover:border-0'>
+							<AccordionTrigger className={style.trigger}>
 								{item.question}
 							</AccordionTrigger>
 							<AccordionContent>{item.answer}</AccordionContent>
 						</AccordionItem>
 					))}
 				</Accordion>
-				<aside className='grid grid-cols-2 gap-2'>
+				<aside className={style.fs1}>
 					{benefitns.map((item, key) => (
 						<Card
 							key={key}

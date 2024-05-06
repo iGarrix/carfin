@@ -1,0 +1,83 @@
+.container {
+	@apply bg-light grid grid-cols-12;
+	.head {
+		@apply grid grid-cols-12 col-span-full bg-accent-100 min-h-[89svh];
+
+		.main {
+			@apply flex flex-col col-start-2 gap-10 col-span-10 mt-auto;
+
+			h1 {
+				@apply font-black text-4xl uppercase col-span-full;
+				@apply xs:text-2xl xs:text-center;
+			}
+
+			.grid_cards {
+				@apply grid grid-cols-2 gap-10;
+				@apply xs:grid-cols-1 lg:grid-cols-2;
+				hr {
+					@apply border-dark-200;
+				}
+			}
+		}
+		.under {
+			@apply col-span-full row-start-2 bg-dark-200 text-light-200 py-8 grid grid-cols-12 bg-noise mt-[2rem];
+			.title {
+				@apply text-3xl font-black uppercase col-start-2 col-span-10 text-center;
+
+				span {
+					@apply text-accent;
+				}
+			}
+
+			.storycards {
+				@apply w-full col-span-10 col-start-2 grid grid-cols-4 mt-10 gap-6;
+				@apply xs:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4;
+			}
+		}
+	}
+
+	.section_custom {
+		@apply col-span-10 col-start-2 grid grid-cols-2 gap-10 mt-16;
+		@apply xs:grid-cols-1 lg:grid-cols-2;
+		.custom_head {
+			@apply col-span-full;
+
+			.custom_title {
+				@apply text-center;
+			}
+			.custom_desc {
+				@apply text-balance text-center;
+			}
+		}
+	}
+	.s1 {
+		@apply grid grid-cols-2 gap-6;
+		@apply xs:grid-cols-1 sm:grid-cols-2;
+
+		h1 {
+			@apply font-black text-3xl uppercase col-span-full;
+		}
+	}
+
+	.s2 {
+		@apply flex justify-end overflow-hidden;
+
+		.img {
+			@apply w-auto h-auto object-contain;
+		}
+	}
+
+	.faq {
+		.acc {
+			@apply w-full;
+			.trigger {
+				@apply hover:border-0;
+			}
+		}
+
+		.fs1 {
+			@apply grid grid-cols-2 gap-2;
+			@apply xs:grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2;
+		}
+	}
+}

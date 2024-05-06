@@ -1,0 +1,24 @@
+.benefits {
+	@apply bg-white col-span-full grid grid-cols-12;
+
+	.wrapper {
+		@apply col-start-2 col-span-10 flex flex-col gap-10;
+
+		.title {
+			@apply text-4xl font-black text-center tracking-wide;
+
+			span {
+				@apply font-monument uppercase;
+			}
+		}
+
+		ul {
+			@apply grid grid-cols-4 gap-5;
+			@apply xs:grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 text-balance;
+
+			hr {
+				@apply border-dark-200;
+			}
+		}
+	}
+}

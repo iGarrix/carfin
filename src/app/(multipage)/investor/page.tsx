@@ -5,7 +5,7 @@ import StoryCardComponent from '@/components/commons/cards/storyCard/story_card.
 import SectionBlock from '@/components/commons/sectionBlock/section_block.component'
 import { useContactForm } from '@/hooks/useContactForm'
 import Image from 'next/image'
-
+import style from './investor.style.module.scss'
 type Investition = {
 	title: string
 	details: string
@@ -108,10 +108,10 @@ export const dynamic = 'force-static'
 export default function Investors() {
 	const { onOpen } = useContactForm()
 	return (
-		<main className='bg-light grid grid-cols-12 gap-16'>
-			<section className='bg-accent-100 grid grid-cols-12 py-[10svh] gap-[2rem] rounded-b-[5rem] shadow-2xl shadow-accent-100 border-b-4 border-light border-dashed col-span-full'>
-				<aside className='flex flex-col justify-center col-start-2 col-span-5'>
-					<h1 className='uppercase font-black tracking-wide text-3xl'>
+		<main className={style.container}>
+			<section className={style.sect1}>
+				<aside className={style.s1}>
+					<h1>
 						Гарантовано отримайте пасивний дохід 20% річних у $, інвестуючи в
 						оренду авто з правом викупу
 					</h1>
@@ -128,7 +128,7 @@ export default function Investors() {
 						доходу з мінімальним ризиком.
 					</p>
 				</aside>
-				<aside className='flex items-center justify-center col-span-5'>
+				<aside className={style.s2}>
 					<Image
 						alt='audirs6'
 						src={
@@ -141,7 +141,7 @@ export default function Investors() {
 					/>
 				</aside>
 			</section>
-			<SectionBlock className='col-span-10 col-start-2'>
+			<SectionBlock className={style.sect2}>
 				<SectionBlock.Header>
 					<SectionBlock.Header.Title>
 						Інвестиційні програми від Carfin
@@ -152,8 +152,8 @@ export default function Investors() {
 						ефективного та прибуткового інвестування для наших клієнтів
 					</SectionBlock.Header.Description>
 				</SectionBlock.Header>
-				<div className='grid grid-cols-2 gap-5'>
-					<aside className='flex flex-col items-center justify-center'>
+				<div className={style.wrapper}>
+					<aside className={style.s1}>
 						<Image
 							alt='audirs6'
 							src={
@@ -162,43 +162,34 @@ export default function Investors() {
 							height={500}
 							width={500}
 							priority
-							className='w-auto h-auto object-contain -scale-x-100 mt-auto'
 						/>
-						<div className='mt-auto w-full py-2 grid grid-cols-2 gap-5'>
+						<div className={style.benefits}>
 							<div>
-								<h1 className='text-5xl font-black uppercase font-monument'>
-									5+
-								</h1>
+								<h1>5+</h1>
 								<p>Років досвіду</p>
 							</div>
 							<div>
-								<h1 className='text-5xl font-black uppercase font-monument'>
-									417+
-								</h1>
+								<h1>417+</h1>
 								<p>Заключених угод</p>
 							</div>
 							<div>
-								<h1 className='text-5xl font-black uppercase font-monument'>
-									$6200
-								</h1>
+								<h1>$6200</h1>
 								<p>Середня сумма угоди</p>
 							</div>
-							<div className=''>
-								<h1 className='text-5xl font-black uppercase font-monument'>
-									$268 000+
-								</h1>
+							<div>
+								<h1>$268 000+</h1>
 								<p>Сума доходу інвесторів</p>
 							</div>
 						</div>
 					</aside>
-					<aside className='grid grid-cols-2 gap-4'>
+					<aside className={style.s2}>
 						{invesititons.map((item, key) => (
 							<Card
 								key={key}
 								imageSrc={item.imageSrc}
 								title={<Card.Title>{item.title}</Card.Title>}
 								wrapperClassname={`${
-									key === invesititons.length - 1 && 'col-span-2'
+									key === invesititons.length - 1 && 'md:col-span-2'
 								}`}
 								className={`${key === invesititons.length - 1 && 'p-[3rem]'}`}>
 								{item.details}
@@ -207,9 +198,9 @@ export default function Investors() {
 					</aside>
 				</div>
 			</SectionBlock>
-			<SectionBlock className='grid grid-cols-3 col-span-10 col-start-2 gap-5'>
-				<SectionBlock.Header className='col-span-full'>
-					<SectionBlock.Header.Title className='text-center'>
+			<SectionBlock className={style.sect3}>
+				<SectionBlock.Header className={style.head}>
+					<SectionBlock.Header.Title className={style.title}>
 						Ваші переваги з Carfin
 					</SectionBlock.Header.Title>
 				</SectionBlock.Header>
@@ -218,7 +209,9 @@ export default function Investors() {
 						key={key}
 						imageSrc={item.imageSrc}
 						title={<Card.Title>{item.title}</Card.Title>}
-						wrapperClassname='bg-accent'
+						wrapperClassname={`bg-accent ${
+							key === benefits.length - 1 && 'md:col-span-2 lg:col-span-1'
+						}`}
 						action={
 							<Card.Action
 								onClick={() => {
@@ -230,8 +223,8 @@ export default function Investors() {
 					</Card>
 				))}
 			</SectionBlock>
-			<SectionBlock className='col-span-11 col-start-2 grid grid-cols-2 gap-4'>
-				<SectionBlock.Header className='col-span-full'>
+			<SectionBlock className={style.sect4}>
+				<SectionBlock.Header className={style.head}>
 					<SectionBlock.Header.Title>Як це працює?</SectionBlock.Header.Title>
 					<SectionBlock.Header.Description>
 						Ці програми довірчого управління розроблені з урахуванням найкращих
@@ -240,7 +233,7 @@ export default function Investors() {
 						інвестування для наших клієнтів
 					</SectionBlock.Header.Description>
 				</SectionBlock.Header>
-				<aside className='grid grid-cols-2 gap-4'>
+				<aside className={style.s1}>
 					{howworks.map((item, key) => (
 						<StoryCardComponent key={key}>
 							<StoryCardComponent.Index>0{key + 1}</StoryCardComponent.Index>
@@ -250,7 +243,7 @@ export default function Investors() {
 						</StoryCardComponent>
 					))}
 				</aside>
-				<aside className='flex justify-end overflow-hidden'>
+				<aside className={style.s2}>
 					<Image
 						alt='m8'
 						src={
@@ -259,7 +252,6 @@ export default function Investors() {
 						height={1440}
 						width={1440}
 						priority
-						className='w-auto h-auto object-contain translate-x-[35%]'
 					/>
 				</aside>
 			</SectionBlock>

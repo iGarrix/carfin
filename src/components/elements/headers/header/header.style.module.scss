@@ -1,0 +1,31 @@
+.headerWrapper {
+	@apply w-full grid grid-cols-12 z-50;
+	@apply xs:sticky xs:bg-accent-100/50 xs:backdrop-blur xs:top-0 lg:bg-transparent lg:static;
+
+	.header {
+		@apply flex justify-between py-[2rem] items-center col-span-10 col-start-2 select-none;
+
+		.logo {
+			@apply font-monument uppercase tracking-wider text-2xl;
+		}
+
+		nav {
+			@apply flex gap-6 h-full items-center;
+			@apply xs:hidden lg:flex;
+
+			.link {
+				@apply transition-all rounded px-4 py-1 hover:bg-accent hover:shadow-lg hover:shadow-accent/40 active:scale-95;
+			}
+			.selected {
+				@apply bg-accent shadow-lg shadow-accent/30;
+			}
+		}
+		aside {
+			@apply xs:hidden lg:flex;
+		}
+		.bar {
+			@apply cursor-pointer;
+			@apply lg:hidden;
+		}
+	}
+}

@@ -9,7 +9,7 @@ const config: Config = {
 	],
 	theme: {
 		screens: {
-			xs: '350px', // Small phones
+			xs: '150px', // Small phones
 			sm: '640px', // Small phones
 			md: '768px', // Medium phones
 			lg: '1024px', // Large phones

@@ -1,12 +1,7 @@
 'use client'
-
-import { Button } from '@/components/ui/button'
 import {
 	Drawer,
-	DrawerClose,
 	DrawerContent,
-	DrawerDescription,
-	DrawerFooter,
 	DrawerHeader,
 	DrawerTitle,
 } from '@/components/ui/drawer'
@@ -15,7 +10,7 @@ import { useMediaQuery } from 'react-responsive'
 import { FormikHelpers } from 'formik'
 import { useState } from 'react'
 import ContactFormikForm from '../form'
-
+import style from './contactform_drawer.style.module.scss'
 interface IContactFormProps {}
 
 function ContactForm({ ...props }: IContactFormProps) {
@@ -35,7 +30,6 @@ function ContactForm({ ...props }: IContactFormProps) {
 		values: ContactFormType,
 		formikHelpers: FormikHelpers<ContactFormType>
 	) {
-		console.log(values)
 		onSend('Заявку успішно надіслано!')
 		setTimeout(() => {
 			onOpen(false)
@@ -48,7 +42,7 @@ function ContactForm({ ...props }: IContactFormProps) {
 
 	return (
 		<Drawer open={isOpen} onOpenChange={onOpen}>
-			<DrawerContent className='min-h-[30svh] bg-accent-100 px-4 pb-[5svh]'>
+			<DrawerContent className={`${style.drawer}`}>
 				<DrawerHeader>
 					<DrawerTitle>Залишити заявку</DrawerTitle>
 				</DrawerHeader>

@@ -11,7 +11,7 @@ import { FormikHelpers } from 'formik'
 import { useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
 import ContactFormikForm from '../form'
-
+import style from './contactform_dialog.style.module.scss'
 interface IContactFormDialogProps {}
 function ContactFormDialog({ ...props }: IContactFormDialogProps) {
 	const { isOpen, onOpen } = useContactForm()
@@ -30,7 +30,6 @@ function ContactFormDialog({ ...props }: IContactFormDialogProps) {
 		values: ContactFormType,
 		formikHelpers: FormikHelpers<ContactFormType>
 	) {
-		console.log(values)
 		onSend('Заявку успішно надіслано!')
 		setTimeout(() => {
 			onOpen(false)
@@ -43,9 +42,9 @@ function ContactFormDialog({ ...props }: IContactFormDialogProps) {
 
 	return (
 		<Dialog open={isOpen} onOpenChange={onOpen}>
-			<DialogContent className='bg-accent-100'>
+			<DialogContent className={`${style.dialog}`}>
 				<DialogHeader>
-					<DialogTitle className='font-semibold text-xl'>
+					<DialogTitle className={`${style.title}`}>
 						Залишити заявку
 					</DialogTitle>
 				</DialogHeader>

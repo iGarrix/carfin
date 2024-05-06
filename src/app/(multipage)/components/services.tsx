@@ -2,6 +2,7 @@
 
 import StoryCard from '@/components/commons/cards/storyCard/story_card.component'
 import Image from 'next/image'
+import style from './services.style.module.scss'
 
 const services: Readonly<
 	Array<{ index: string; title: string; details: string }>
@@ -22,12 +23,12 @@ const services: Readonly<
 
 export default function Services() {
 	return (
-		<section className='col-span-full w-full bg-light grid grid-cols-12 py-[5rem] gap-5'>
-			<div className='col-start-2 col-span-5 flex flex-col gap-5 justify-between'>
-				<div className=''>
-					<h1 className='text-4xl font-semibold uppercase'>
+		<section className={style.wrapper}>
+			<aside className={style.aside1}>
+				<div>
+					<h1>
 						Більше про <br />
-						<span className='font-monument'>carfin</span>
+						<span>carfin</span>
 					</h1>
 					<br />
 					<p>
@@ -37,7 +38,7 @@ export default function Services() {
 						Працюємо з 2019 року.
 					</p>
 				</div>
-				<div className='grid grid-cols-2'>
+				<div className={style.imgGrid}>
 					<Image
 						src={
 							'https://www.topgear.com/sites/default/files/2024/04/2-Porsche-Taycan-review-2024.jpg'
@@ -46,17 +47,17 @@ export default function Services() {
 						width={380}
 						height={400}
 						priority
-						className='rounded-xl object-cover rotate-[-6deg] translate-y-[10%]'
+						className={style.f1}
 					/>
 					<Image
 						src={
-							'https://www.motortrend.com/uploads/sites/5/2019/12/2020-Rolls-Royce-Cullinan-10.jpg?w=768&width=768&q=75&format=webp   '
+							'https://www.motortrend.com/uploads/sites/5/2019/12/2020-Rolls-Royce-Cullinan-10.jpg?w=768&width=768&q=75&format=webp'
 						}
 						alt='taycan'
 						width={380}
 						height={400}
 						priority
-						className='rounded-xl object-cover row-start-2 col-start-2 rotate-[6deg] translate-x-[-25%]'
+						className={style.f2}
 					/>
 					<Image
 						src={
@@ -66,11 +67,11 @@ export default function Services() {
 						width={380}
 						height={400}
 						priority
-						className='rounded-xl object-cover row-start-3 rotate-[-4deg] translate-y-[-20%]'
+						className={style.f3}
 					/>
 				</div>
-			</div>
-			<div className='grid grid-rows-2 col-span-5 col-start-7'>
+			</aside>
+			<aside className={style.aside2}>
 				<Image
 					src={
 						'https://www.motortrend.com/uploads/2023/06/016-2024-Audi-RS6-Avant-performance-front-three-quarters.jpg'
@@ -79,21 +80,21 @@ export default function Services() {
 					width={800}
 					height={600}
 					priority
-					className='object-cover rounded-xl'
+					className={style.img}
 				/>
-				<div className='py-[2rem]'>
-					<ul className='grid grid-cols-2 gap-10'>
+				<div>
+					<ul>
 						{services.map((item, key) => (
 							<StoryCard key={key}>
 								<StoryCard.Index>{item.index}</StoryCard.Index>
-								<hr className='border-dark-200' /> <br />
+								<hr /> <br />
 								<StoryCard.Title>{item.title}</StoryCard.Title>
 								<StoryCard.Detail>{item.details}</StoryCard.Detail>
 							</StoryCard>
 						))}
 					</ul>
 				</div>
-			</div>
+			</aside>
 		</section>
 	)
 }
