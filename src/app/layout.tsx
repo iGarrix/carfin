@@ -74,13 +74,13 @@ export const metadata: Metadata = {
 		address: false,
 		telephone: false,
 	},
-	metadataBase: new URL(process.env.NEXT_PUBLIC_URL || 'nextjs.org'),
+	metadataBase: new URL(process.env.NEXT_PUBLIC_URL || 'https://nextjs.org'),
 	twitter: {
+		title: 'Carfin - Авто в росрочку',
 		card: 'summary_large_image',
 		description:
 			'ОРЕНДУЙТЕ АВТО ПІД БУДЬ-ЯКІ ПОТРЕБИ ЗА ОДИН ДЕНЬ ТА ОТРИМАЙТЕ ЙОГО У ВЛАСНІСТЬ ВЖЕ ЧЕРЕЗ РІК',
 		creator: '@illinpayne',
-		images: ['../../public/twitter_main.png'],
 	},
 	openGraph: {
 		title: 'Carfin - Авто в росрочку',
@@ -88,8 +88,8 @@ export const metadata: Metadata = {
 			'ОРЕНДУЙТЕ АВТО ПІД БУДЬ-ЯКІ ПОТРЕБИ ЗА ОДИН ДЕНЬ ТА ОТРИМАЙТЕ ЙОГО У ВЛАСНІСТЬ ВЖЕ ЧЕРЕЗ РІК',
 		url: process.env.NEXT_PUBLIC_URL,
 		siteName: 'Carfin',
+		locale: 'ua_UA',
 		type: 'website',
-		images: ['../../public/twitter_main.png'],
 	},
 }
 
